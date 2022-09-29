@@ -26,4 +26,12 @@ let new_init (taille:int) (fonction:(int->'a )) :'a array=
     tab2.(i) <- fonction i
   done;
   tab2;;
-
+  
+  
+  
+let new_array_to_list (tab:'a array) :'a list=
+  let liste = ref [] in
+  for i = ((Array.length tab)-1) downto 0 do 
+    liste := tab.(i)::(!liste) 
+  done; 
+  !liste;;
