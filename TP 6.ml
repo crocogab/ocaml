@@ -53,4 +53,5 @@ capacité:0 sommet:0  contenu: [||]
 let is_empty (pile:'a my_stack_2)=
   if pile.sommet = -1 then true else false;;
 
-let empty_stack 
+let empty_stack (x:'a):'a stack=
+  {capacite = 8 ; sommet = -1 ; contenu = Array.make 8 x };;
