@@ -55,3 +55,38 @@ let is_empty (pile:'a my_stack_2)=
 
 let empty_stack (x:'a):'a stack=
   {capacite = 8 ; sommet = -1 ; contenu = Array.make 8 x };;
+  
+  
+exception PileVide;;
+exception PilePleine;;
+
+
+type 'a my_stack=
+  {
+    capacite:int;
+    mutable sommet:int;
+    contenu:'a array
+    
+  };;
+
+let taille_max = 8;;
+
+let empty_stack (x:'a) : 'a my_stack=
+  {capacité =taille_max ; sommet = -1;contenu = Array.make 8 x};;
+
+let is_empty (p:'a stack) 'bool=
+  p.sommet = -1;;
+
+let push (p:'a my_stack) (x:'a) :unit=
+  if p.sommet < taille_max then 
+    begin
+      p.sommet <-p.sommet +1;
+      p.contenu.(p.sommet) <- x
+    end
+  else
+    raise PilePleine;;
+
+let pop (p:'a my_stack): 'a =
+  if p.sommet <0 then p.sommet <- p.sommet -1;;
+        
+  
